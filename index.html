@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吴卫杰 - 个人主页</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <span class="nav-brand">吴卫杰</span>
+        <button class="theme-toggle" id="theme-toggle" aria-label="切换深色/浅色模式">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- 粒子背景 -->
+    <canvas id="particles"></canvas>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 首屏 -->
+        <section class="hero">
+            <div class="card fade-in-up">
+                <div class="avatar" id="avatar-upload" title="点击上传头像">
+                    <span class="avatar-text" id="avatar-text">吴</span>
+                    <img class="avatar-img" id="avatar-img" alt="头像">
+                    <div class="avatar-overlay">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm6.5 4.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0zM21 21v-2H3v2h18zM17 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                    </div>
+                </div>
+                <input type="file" id="avatar-input" accept="image/*" hidden>
+                <h1 class="name">吴卫杰</h1>
+                <p class="bio">
+                    <span id="typing-text"></span>
+                    <span class="cursor">|</span>
+                </p>
+                <div class="divider"></div>
+                <div class="links">
+                    <a href="https://github.com/wu-weijie" target="_blank" rel="noopener" class="link-btn ripple" title="GitHub">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                    </a>
+                    <a href="mailto:wu-weijie@example.com" class="link-btn ripple" title="邮箱">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-hint" id="scroll-hint">
+                <span>了解更多</span>
+                <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 关于区域 -->
+        <section class="about" id="about">
+            <div class="section-card fade-in-up">
+                <h2>关于我</h2>
+                <p class="about-desc">一名热爱技术的编程爱好者，专注于前端开发与交互设计，喜欢探索新技术并动手实践。</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 吴卫杰 | 编程爱好者</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
